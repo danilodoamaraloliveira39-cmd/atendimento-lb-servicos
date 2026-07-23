@@ -1,344 +1,456 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INTERNET SUPORTE - Central de Ajuda</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-<title>LB Serviços e Manutenção Elétricos LTDA</title>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
 
-<meta name="description" content="LB Serviços e Manutenção Elétricos LTDA - Instalações e manutenção elétrica.">
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #dc2626 0%, #991b1b 100%);
+            color: white;
+            padding: 20px 0;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
 
-<style>
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
 
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Arial,sans-serif
-}
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
 
-body{
-color:#333;
-background:#f5f5f5
-}
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #dc2626;
+            font-weight: bold;
+        }
 
-header{
-background:#0b1320;
-padding:20px;
-color:white;
-position:fixed;
-width:100%;
-top:0
-}
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 30px;
+            font-weight: 500;
+            transition: opacity 0.3s;
+        }
 
-.container{
-width:90%;
-max-width:1100px;
-margin:auto
-}
+        nav a:hover {
+            opacity: 0.8;
+        }
 
-.logo{
-font-size:24px;
-font-weight:bold
-}
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #dc2626 0%, #991b1b 100%);
+            color: white;
+            padding: 80px 20px;
+            text-align: center;
+        }
 
-.hero{
-margin-top:70px;
-padding:100px 20px;
-text-align:center;
-color:white;
-background:
-linear-gradient(#0009,#0009),
-url("https://images.unsplash.com/photo-1621905252507-b35492cc74b4")
-center/cover
-}
+        .hero-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
 
-.hero h1{
-font-size:42px;
-margin-bottom:20px
-}
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
 
-.hero p{
-font-size:20px
-}
+        .hero p {
+            font-size: 20px;
+            margin-bottom: 40px;
+            opacity: 0.95;
+        }
 
-.btn{
-display:inline-block;
-margin-top:30px;
-padding:15px 30px;
-background:#fbbf24;
-color:#111;
-text-decoration:none;
-border-radius:8px;
-font-weight:bold
-}
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
 
-section{
-padding:70px 0
-}
+        .btn {
+            padding: 14px 32px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
 
-h2{
-text-align:center;
-margin-bottom:35px;
-color:#0b1320
-}
+        .btn-primary {
+            background: white;
+            color: #dc2626;
+        }
 
-.cards{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:20px
-}
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
 
-.card{
-background:white;
-padding:25px;
-border-radius:12px;
-box-shadow:0 5px 20px #0002
-}
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            border: 2px solid white;
+        }
 
-.card h3{
-color:#0b1320;
-margin-bottom:10px
-}
+        .btn-secondary:hover {
+            background: white;
+            color: #dc2626;
+        }
 
-.about{
-background:white
-}
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
 
-.info{
-background:#0b1320;
-color:white;
-padding:30px;
-border-radius:10px
-}
+        /* Sections */
+        section {
+            padding: 60px 20px;
+        }
 
-.contact{
-text-align:center
-}
+        section h2 {
+            font-size: 36px;
+            color: #dc2626;
+            margin-bottom: 40px;
+            text-align: center;
+        }
 
-footer{
-background:#111;
-color:#ddd;
-padding:40px 0;
-font-size:14px
-}
+        /* Serviços */
+        .servicos {
+            background: #f9fafb;
+        }
 
-footer h3{
-color:white;
-margin-bottom:15px
-}
+        .servicos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
 
-</style>
+        .servico-card {
+            background: white;
+            padding: 40px 30px;
+            border-radius: 8px;
+            border-left: 5px solid #dc2626;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
 
+        .servico-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+        }
+
+        .servico-icon {
+            font-size: 50px;
+            margin-bottom: 20px;
+            color: #dc2626;
+        }
+
+        .servico-card h3 {
+            color: #dc2626;
+            margin-bottom: 15px;
+            font-size: 22px;
+        }
+
+        .servico-card p {
+            color: #666;
+            margin-bottom: 25px;
+            flex-grow: 1;
+        }
+
+        .servico-card .btn {
+            width: 100%;
+            text-align: center;
+        }
+
+        .servico-card .btn-atendimento {
+            background: linear-gradient(135deg, #dc2626 0%, #991b1b 100%);
+            color: white;
+            padding: 18px 40px;
+            font-size: 18px;
+            font-weight: 700;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 4px 12px rgba(220, 38, 38, 0.3);
+        }
+
+        .servico-card .btn-atendimento:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 20px rgba(220, 38, 38, 0.5);
+            background: linear-gradient(135deg, #991b1b 0%, #dc2626 100%);
+        }
+
+        /* CTA Section */
+        .cta {
+            background: linear-gradient(135deg, #dc2626 0%, #991b1b 100%);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .cta h2 {
+            color: white;
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+        .cta p {
+            font-size: 18px;
+            margin-bottom: 30px;
+            opacity: 0.95;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        /* Footer */
+        footer {
+            background: #1f2937;
+            color: white;
+            padding: 30px 20px;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-content p {
+            margin-bottom: 10px;
+        }
+
+        .footer-bottom {
+            color: #999;
+            font-size: 14px;
+            margin-top: 20px;
+            border-top: 1px solid #444;
+            padding-top: 20px;
+        }
+
+        /* WhatsApp Button */
+        .whatsapp-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 60px;
+            height: 60px;
+            background: #25d366;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            color: white;
+            text-decoration: none;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            transition: all 0.3s;
+            z-index: 999;
+        }
+
+        .whatsapp-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Responsivo */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            nav a {
+                margin-left: 15px;
+            }
+
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .hero p {
+                font-size: 16px;
+            }
+
+            section h2 {
+                font-size: 28px;
+            }
+
+            .hero-buttons,
+            .cta-buttons {
+                flex-direction: column;
+            }
+
+            .hero-buttons .btn,
+            .cta-buttons .btn {
+                width: 100%;
+            }
+
+            .servicos-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .cta h2 {
+                font-size: 28px;
+            }
+        }
+    </style>
 </head>
-
 <body>
-
-
-<header>
-<div class="container">
-<div class="logo">
-LB Serviços Elétricos
-</div>
-</div>
-</header>
-
-
-
-<section class="hero">
-
-<div class="container">
-
-<h1>
-Soluções em Serviços Elétricos
-</h1>
-
-<p>
-A LB SERVICOS E MANUTENCAO ELETRICOS LTDA atua com instalação e manutenção elétrica, oferecendo soluções para clientes residenciais e comerciais.
-</p>
-
-<a class="btn" href="#contato">
-Solicitar orçamento
-</a>
-
-</div>
-
-</section>
-
-
-
-<section>
-
-<div class="container">
-
-<h2>
-Serviços
-</h2>
-
-
-<div class="cards">
-
-<div class="card">
-<h3>Instalações Elétricas</h3>
-<p>
-Serviços de instalação elétrica para adequação e funcionamento seguro dos sistemas elétricos.
-</p>
-</div>
-
-
-<div class="card">
-<h3>Manutenção Elétrica</h3>
-<p>
-Manutenção preventiva e corretiva em instalações elétricas.
-</p>
-</div>
-
-
-<div class="card">
-<h3>Ajustes e Reparos</h3>
-<p>
-Correções e melhorias em sistemas elétricos existentes.
-</p>
-</div>
-
-
-<div class="card">
-<h3>Atendimento Comercial</h3>
-<p>
-Soluções elétricas para empresas e estabelecimentos.
-</p>
-</div>
-
-
-</div>
-
-</div>
-
-</section>
-
-
-
-<section class="about">
-
-<div class="container">
-
-<h2>
-Sobre a Empresa
-</h2>
-
-
-<p style="text-align:center">
-
-A <strong>LB SERVICOS E MANUTENCAO ELETRICOS LTDA</strong>,
-CNPJ <strong>38.731.401/0001-94</strong>, atua no segmento de serviços elétricos,
-prestando serviços de instalação e manutenção elétrica.
-
-</p>
-
-<br>
-
-
-<div class="info">
-
-<p>
-<strong>Razão Social:</strong> LB SERVICOS E MANUTENCAO ELETRICOS LTDA
-</p>
-
-<p>
-<strong>CNPJ:</strong> 38.731.401/0001-94
-</p>
-
-<p>
-<strong>Atividade:</strong> Instalação e manutenção elétrica
-</p>
-
-<p>
-<strong>Localização:</strong> Cariacica - ES
-</p>
-
-</div>
-
-
-</div>
-
-</section>
-
-
-
-
-<section id="contato">
-
-<div class="container">
-
-<h2>
-Contato
-</h2>
-
-
-<p>
-Entre em contato para solicitar informações e orçamento.
-</p>
-
-<br>
-
-<p>
-Telefone: (27) 9957-7805
-</p>
-
-
-<p>
-LB SERVICOS E MANUTENCAO ELETRICOS LTDA
-</p>
-
-</div>
-
-</section>
-
-
-
-
-<footer>
-
-<div class="container">
-
-<h3>Política de Privacidade</h3>
-
-<p>
-Os dados enviados pelos usuários através dos canais de contato são utilizados exclusivamente para atendimento e comunicação relacionada aos serviços da empresa.
-</p>
-
-
-<br>
-
-
-<h3>Termos de Uso</h3>
-
-<p>
-Este site possui finalidade institucional e apresenta informações sobre os serviços oferecidos pela empresa. O uso das informações implica concordância com estes termos.
-</p>
-
-
-<br>
-
-
-<h3>Política de Cookies</h3>
-
-<p>
-Este site pode utilizar cookies para melhorar a experiência de navegação e analisar acessos. O usuário pode controlar cookies através das configurações do navegador.
-</p>
-
-
-<br>
-
-<p>
-© 2026 LB SERVICOS E MANUTENCAO ELETRICOS LTDA - CNPJ 38.731.401/0001-94
-</p>
-
-
-</div>
-
-</footer>
-
-
+    <!-- Header -->
+    <header>
+        <div class="header-container">
+            <div class="">
+                <img src="logo_clarosuporte.png" alt="INTERNET SUPORTE" style="height: 50px; border-radius: 4px;">
+            </div>
+            <nav>
+                <a href="#servicos">Serviços</a>
+                <a href="#contato">Contato</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-container">
+            <h1>Bem-vindo à INTERNET SUPORTE</h1>
+            <p>Suporte rápido e eficiente para seus problemas de conexão</p>
+            <div class="hero-buttons">
+                <a href="https://wa.me/555599662638?text=Olá%20CLAROSUPORTE!%20Gostaria%20de%20iniciar%20um%20atendimento." class="btn btn-primary">💬 Iniciar Atendimento</a>
+                <a href="#servicos" class="btn btn-secondary">Ver Serviços</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Serviços -->
+    <section class="servicos" id="servicos">
+        <div class="container">
+            <h2>Nossos Serviços</h2>
+            <div class="servicos-grid">
+                <!-- Suporte -->
+                <div class="servico-card">
+                    <div class="servico-icon">🎧</div>
+                    <h3>Suporte</h3>
+                    <p>Atendimento especializado para resolver seus problemas de forma rápida.</p>
+                    <a href="https://wa.me/555599662638?text=Olá%20CLAROSUPORTE!%20Preciso%20de%20suporte%20técnico." class="btn btn-atendimento">Solicitar Atendimento</a>
+                </div>
+
+                <!-- Internet Lenta -->
+                <div class="servico-card">
+                    <div class="servico-icon">📶</div>
+                    <h3>Internet Lenta</h3>
+                    <p>Diagnosticamos e resolvemos problemas de velocidade de conexão.</p>
+                    <a href="https://wa.me/555599662638?text=Olá%20CLAROSUPORTE!%20Minha%20internet%20está%20lenta." class="btn btn-atendimento">Solicitar Atendimento</a>
+                </div>
+
+                <!-- Solicitar Fatura -->
+                <div class="servico-card">
+                    <div class="servico-icon">📄</div>
+                    <h3>Solicitar Fatura</h3>
+                    <p>Solicite sua fatura de forma rápida e fácil via WhatsApp.</p>
+                    <a href="https://wa.me/555599662638?text=Olá%20CLAROSUPORTE!%20Gostaria%20de%20solicitar%20minha%20fatura." class="btn btn-atendimento">Solicitar Atendimento</a>
+                </div>
+
+                <!-- Outros Assuntos -->
+                <div class="servico-card">
+                    <div class="servico-icon">💬</div>
+                    <h3>Outros Assuntos</h3>
+                    <p>Fale conosco sobre qualquer tema relacionado aos nossos serviços.</p>
+                    <a href="https://wa.me/555599662638?text=Olá%20CLAROSUPORTE!%20Tenho%20uma%20dúvida." class="btn btn-atendimento">Solicitar Atendimento</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta" id="contato">
+        <div class="container">
+            <h2>Pronto para resolver seu problema?</h2>
+            <p>Clique no botão abaixo e inicie um atendimento via WhatsApp agora mesmo!</p>
+            <div class="cta-buttons">
+                <a href="https://wa.me/5555599662638?text=Olá%20CLAROSUPORTE!%20Gostaria%20de%20iniciar%20um%20atendimento." class="btn btn-primary">💬 Iniciar Atendimento</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <p><strong>NETSUPORTE - Central de Ajuda</strong></p>
+            <p>Estamos aqui para ajudar você 24/7</p>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 NETSUPORTE. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Button -->
+    <a href="https://wa.me/555599662638?text=Olá%20CLAROSUPORTE!%20Gostaria%20de%20iniciar%20um%20atendimento." class="whatsapp-btn" title="Fale conosco no WhatsApp">💬</a>
+
+    <script>
+        // Smooth scroll para links internos
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
 </body>
 </html>
+
